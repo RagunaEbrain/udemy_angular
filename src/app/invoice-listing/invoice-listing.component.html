@@ -1,0 +1,26 @@
+<div class="container">
+<button type="button" class="btn float-right mt-2" style="background-color:#f13083c9;color:white" routerLink = "/invoiceForm">New Invoice</button>
+    <h2 class="mt-5">Basic Table</h2>
+    <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor = "let invoice of invoiceArray">
+        <tr>
+          <td>{{invoice.item}}</td>
+          <td>{{invoice.qty}}</td>
+          <td>{{invoice.date | date}}</td>
+          <td>
+                <button type="button" class="btn btn-secondary" routerLink="/invoiceForm/{{invoice._id}}">Edit</button>&nbsp;
+                <button type="button" class="btn btn-secondary" (click)="deleteUser(invoice._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

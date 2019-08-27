@@ -1,0 +1,34 @@
+<body>
+
+    <div class="container">
+      <h5>Login</h5>
+      <form action="/action_page.php" #usrform="ngForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" [class.is-invalid]="email.invalid && email.touched"
+          class="form-control" #email="ngModel" [(ngModel)]="loginData.email" id="email" placeholder="Enter email" name="email" required autocomplete="off">
+          <span
+          class="text-danger float-left error_word errFont"
+          [class.d-none]="email.valid || email.untouched"
+          ><i class="fa fa-info-circle" aria-hidden="true"></i> Email is
+          required</span
+        >
+        </div>
+        <div class="form-group mt-4">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" [class.is-invalid]="password.invalid && password.touched"
+          id="password"  #password="ngModel" [(ngModel)]="loginData.password" placeholder="Enter password" name="password" required autocomplete="off">
+          <span
+          class="text-danger float-left error_word errFont"
+          [class.d-none]="password.valid || password.untouched"
+          ><i class="fa fa-info-circle" aria-hidden="true"></i> Password is
+          required</span
+        >
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+    </div>
+    
+    </body>
